@@ -25,6 +25,9 @@ namespace WCF_Client
 
             var tcpBinding = new NetTcpBinding();
             tcpBinding.Security.Mode = SecurityMode.None;
+            tcpBinding.PortSharingEnabled = false;
+            tcpBinding.MaxConnections = 300;
+            tcpBinding.ListenBacklog = 50;
 
             ChannelFactory<IStringReverser> revFactory = new ChannelFactory<IStringReverser>(tcpBinding, new EndpointAddress(ep));
 

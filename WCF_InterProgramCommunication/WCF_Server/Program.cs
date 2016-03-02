@@ -41,6 +41,9 @@ namespace WCF_Server
 
             var tcpBinding = new NetTcpBinding();
             tcpBinding.Security.Mode = SecurityMode.None;
+            tcpBinding.PortSharingEnabled = false;
+            tcpBinding.MaxConnections = 300;
+            tcpBinding.ListenBacklog = 50;
 
             var uri = new Uri[] { new Uri("net.tcp://" + System.Net.Dns.GetHostName() + ":9985") };
 
