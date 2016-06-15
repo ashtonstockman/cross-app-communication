@@ -31,6 +31,7 @@ namespace WCF_Client
             tcpBinding.PortSharingEnabled = false;
             tcpBinding.MaxConnections = 300;
             tcpBinding.ListenBacklog = 50;
+            tcpBinding.MaxBufferSize = 2147483647;
 
             ChannelFactory<IRedisCacher> revFactory = new ChannelFactory<IRedisCacher>(tcpBinding, new EndpointAddress(ep));
 
